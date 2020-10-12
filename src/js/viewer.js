@@ -90,8 +90,8 @@ class Viewer {
 
     const isImg = element.tagName.toLowerCase() === 'img';
     const images = [];
-
-    forEach(isImg ? [element] : element.querySelectorAll('img'), (image) => {
+    var querySel = options.querySel ? options.querySel : 'img'; // wbt
+    forEach(isImg ? [element] : element.querySelectorAll(querySel), (image) => {
       if (isFunction(options.filter)) {
         if (options.filter.call(this, image)) {
           images.push(image);
